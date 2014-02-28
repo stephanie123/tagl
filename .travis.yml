@@ -8,5 +8,3 @@ jdk:
 script:
         - pushd cron4j-original && ant rel && popd
         - pushd testgit-work/cron4j-mvn mvn clean verify popd
-
-mvn clean verify
