@@ -22,4 +22,49 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+   <build>
+	<plugins>
+	 <plugin>
+      <!-- Below is the plugin for corbertura. It is a tool that creates
+      a report to let you know how much of your code was accessed by the tests.
+      This helps you to maybe identify places in your code that you need to pay 
+      more attention to. The resulting report is found in target/site/cobertura.
+      Can be run from the command line with  mvn cobertura:cobertura -->
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cobertura-maven-plugin</artifactId>
+        <version>2.6</version>
+       
+            <configuration>
+          <formats>
+            <format>html</format>
+            <format>xml</format>
+          </formats>
+        </configuration>
+       <executions>
+       <execution>
+       <phase>package</phase>
+        <goals>
+        <goal>cobertura</goal>
+        </goals>
+       </execution>
+       </executions>
+     
+        
+       
+      </plugin>
+
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-javadoc-plugin</artifactId>
+			<executions>
+				<execution>
+					<id>attach-javadocs</id>
+					<goals>
+						<goal>jar</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+	</plugins>
+	</build>
 </project>
